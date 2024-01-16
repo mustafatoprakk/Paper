@@ -28,39 +28,39 @@ import { Head } from '@inertiajs/vue3';
             </h1>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg shadow-xl"
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
                         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
                 </div>
             </div>

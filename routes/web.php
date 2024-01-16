@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +38,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/our-projects', [AdminController::class, 'index'])->name('admin.project');
+    Route::get('/posts', [PostController::class, 'index'])->name('post.index');
+    Route::post('/posts', [PostController::class, 'store'])->name('post.store');
 });
 
 require __DIR__ . '/auth.php';

@@ -35,7 +35,7 @@ const showingNavigationDropdown = ref(false);
                                 </NavLink>
                                 <NavLink
                                     v-if="$page.props.auth && $page.props.auth.user && $page.props.auth.user.roles && $page.props.auth.user.roles.includes('admin')"
-                                    :href="route('admin.project')" :active="route().current('admin.project')">
+                                    :href="route('post.index')" :active="route().current('post.index')">
                                     Our Projects
                                 </NavLink>
                             </div>
