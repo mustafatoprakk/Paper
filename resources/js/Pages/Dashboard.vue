@@ -1,6 +1,10 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+
+defineProps({
+    posts: ""
+})
 </script>
 
 <template>
@@ -26,42 +30,9 @@ import { Head } from '@inertiajs/vue3';
             <h1 class="text-3xl mb-6 font-semibold text-center text-gray-600 capitalize lg:text-5xl dark:text-slate-600">
                 Our Projects
             </h1>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                <div v-for="post in posts" :key="post.id">
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl" :src="'images/posts/' + post.image" alt="">
                 </div>
             </div>
 

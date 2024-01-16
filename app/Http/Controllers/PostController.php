@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy("id", "DESC")->get();
         return Inertia::render("Admin/Posts/Index", compact("posts"));
     }
 
@@ -37,7 +37,7 @@ class PostController extends Controller
 
             $imageName = date('YmdHis') . "." . $request->file("image")->getClientOriginalExtension();
             $image = $manager->read($request->file("image"));
-            $image->scale(828, 640);
+            $image->resize(828, 640);
             $image->save(base_path('public/images/posts/' . $imageName));
 
             Post::create([

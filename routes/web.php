@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,7 +29,8 @@ Route::get('/w', function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Dashboard');
+    $posts = Post::orderBy("id", "DESC")->get();
+    return Inertia::render('Dashboard', compact("posts"));
 })->name('dashboard');
 
 Route::middleware('auth')->group(function () {
