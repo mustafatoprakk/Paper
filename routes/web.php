@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('post.index');
     Route::post('/posts', [PostController::class, 'store'])->name('post.store');
+    Route::delete('/posts/destroy/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
 require __DIR__ . '/auth.php';

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -37,7 +39,7 @@ class PostController extends Controller
 
             $imageName = date('YmdHis') . "." . $request->file("image")->getClientOriginalExtension();
             $image = $manager->read($request->file("image"));
-            $image->resize(828, 640);
+            $image->cover(828, 640);
             $image->save(base_path('public/images/posts/' . $imageName));
 
             Post::create([
@@ -77,6 +79,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        File::delete(public_path("images/posts/" . $post["image"]));
+
+        $post->delete();
+
+        return redirect()->route("post.index");
     }
 }

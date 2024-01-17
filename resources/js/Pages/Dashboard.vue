@@ -32,7 +32,7 @@ defineProps({
             </h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
                 <div v-for="post in posts" :key="post.id">
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl" :src="'images/posts/' + post.image" alt="">
+                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl hover:border-2" :src="'images/posts/' + post.image" alt="">
                 </div>
             </div>
 

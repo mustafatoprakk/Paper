@@ -24,6 +24,12 @@ const submitImage = () => {
     isOpenProjectModal.value = false
 }
 
+const deleteImage = (id) => {
+    if (confirm("Are you sure this delete image")) {
+        form.delete(route("post.destroy", id))
+    }
+}
+
 </script>
 
 <template>
@@ -37,13 +43,23 @@ const submitImage = () => {
         <div class="float-right pe-16">
             <button type="button" @click="openProjectModal"
                 class="text-white bg-gray-800 hover:bg-gray-900 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-md mt-2 px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">New
-                Project</button>
+                Image</button>
         </div>
         <div class="p-16 mt-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
                 <div v-for="post in posts" :key="post.id">
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl"
-                        :src="'images/posts/'+post.image" alt="">
+                    <div class="relative group">
+                        <img class="h-auto max-w-full rounded-lg hover:shadow-2xl hover:border-2" :src="'images/posts/' + post.image"
+                            alt="">
+                        <button @click="deleteImage(post.id)"
+                            class="absolute top-0 right-0 p-4 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-red-600" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                                <path
+                                    d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
