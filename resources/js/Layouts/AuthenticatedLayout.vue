@@ -31,12 +31,16 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Anasayfa
                                 </NavLink>
-                                <NavLink
-                                    v-if="$page.props.auth && $page.props.auth.user && $page.props.auth.user.roles && $page.props.auth.user.roles.includes('admin')"
-                                    :href="route('post.index')" :active="route().current('post.index')">
-                                    Our Projects
+                                <NavLink :href="route('products')" :active="route().current('products')">
+                                    Ürünler
+                                </NavLink>
+                                <NavLink :href="route('post.index')" :active="route().current('post.index')">
+                                    Galeri
+                                </NavLink>
+                                <NavLink :href="route('about')" :active="route().current('about')">
+                                    Hakkımızda
                                 </NavLink>
                             </div>
                         </div>

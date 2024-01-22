@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy("id", "DESC")->get();
+        $posts = PostResource::collection(Post::latest()->paginate(10));;
         return Inertia::render("Admin/Posts/Index", compact("posts"));
     }
 

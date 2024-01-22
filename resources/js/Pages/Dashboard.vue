@@ -1,18 +1,19 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import Pagination from '@/Components/Pagination.vue';
 
 defineProps({
-    posts: ""
+    posts: Object
 })
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Anasayfa" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Anasayfa</h2>
         </template>
 
         <div class="p-16">
@@ -20,21 +21,25 @@ defineProps({
                 class="bg-blue-100 py-52 shadow-xl max-w-lg px-4  mx-auto text-left md:max-w-none md:text-center rounded-xl">
                 <h1
                     class="font-extrabold leading-10 tracking-tight text-[#201515] text-center sm:leading-none text-5xl sm:text-9xl">
-                    <span class="inline md:block">Building Good </span>
-                    <span class="relative mt-2 bg-clip-text text-[#201515] md:inline-block">Software.</span>
+                    <span class="inline md:block">Kağıdın Estetik </span>
+                    <span class="relative mt-2 bg-clip-text text-[#201515] md:inline-block">Dünyası.</span>
                 </h1>
             </div>
         </div>
 
         <div class="p-16">
             <h1 class="text-3xl mb-6 font-semibold text-center text-gray-600 capitalize lg:text-5xl dark:text-slate-600">
-                Our Projects
+                Galeri
             </h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-                <div v-for="post in posts" :key="post.id">
-                    <img class="h-auto max-w-full rounded-lg hover:shadow-2xl hover:border-2" :src="'images/posts/' + post.image" alt="">
+            <div v-if="posts.data.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                <div v-for="post in posts.data" :key="post.id">
+                    <div class="relative">
+                        <img class="h-auto max-w-full rounded-lg hover:shadow-2xl hover:border-2"
+                            :src="'images/posts/' + post.image" alt="">
+                    </div>
                 </div>
             </div>
+            <Pagination :pagination="posts.meta"></Pagination>
 
 
         </div>
