@@ -30,7 +30,7 @@ const submitImage = () => {
 
 // delete image
 const deleteImage = (id) => {
-    if (confirm("Are you sure this delete image")) {
+    if (confirm("Resmi silmek istediğinize emin misiniz?")) {
         form.delete(route("post.destroy", id))
     }
 }
@@ -59,7 +59,7 @@ const deleteImage = (id) => {
                             :src="'images/posts/' + post.image" alt="">
                         <button @click="deleteImage(post.id)"
                             v-if="$page.props.auth && $page.props.auth.user && $page.props.auth.user.roles && $page.props.auth.user.roles.includes('admin')"
-                            class="absolute top-0 right-0 p-4 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            class="absolute top-0 right-0 p-4 rounded opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                             <svg class="w-6 h-6 text-gray-800 dark:text-red-600" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                                 <path
@@ -76,7 +76,7 @@ const deleteImage = (id) => {
         <!-- Project Modal -->
         <div v-if="isOpenProjectModal"
             class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <div class="transition duration-700 ease-in-out relative p-4 w-full max-w-2xl max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <!-- Modal header -->
